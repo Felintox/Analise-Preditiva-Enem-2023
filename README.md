@@ -12,16 +12,16 @@ link : https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdado
 Este notebook apresenta uma análise completa dos microdados do ENEM 2023, incluindo:
 
 **Pré-processamento dos Dados:**
-- Análise de valores nulos e investigação de padrões de ausência
-- Identificação e tratamento de candidatos ausentes/eliminados
-- Criação da variável target (NOTA_ENEM) como média das cinco áreas avaliadas
-- Remoção de colunas irrelevantes e com alta porcentagem de valores ausentes
+- 1. Análise de valores nulos e investigação de padrões.
+- 2. Exploração de perfis de candidados que se absteram.
+- 3. Criação da variável target (NOTA_ENEM) como média das cinco áreas avaliadas.
+- 4. Remoção de colunas irrelevantes e com alta porcentagem de valores ausentes.
 #
   
 # **Análise Exploratória (EDA):**
 
 ## **Análise de Abstenção**: Investigação dos fatores socioeconômicos que influenciam a decisão de não comparecer às provas
-## Cada barra representa a porcentagem de abstenção de cada categoria
+## Assim cada classe da variavel categorica será a proporção de pessoas que se abstiveram em relação ao total de pessoas daquela classe.
 <img width="1198" height="502" alt="1" src="https://github.com/user-attachments/assets/e872e626-0ade-4071-ab21-936afd08ddb1" />
 
 ## Podemos observar claramente que com o aumento da renda há uma diminuição da porcentagem de abstenção de candidatos: quanto maior a renda, menor a abstenção
