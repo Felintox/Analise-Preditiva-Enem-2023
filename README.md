@@ -74,29 +74,89 @@ Este notebook apresenta uma análise completa dos microdados do ENEM 2023, inclu
 
 Este notebook implementa uma abordagem completa de machine learning para predição das notas do ENEM, incluindo:
 
-**Pipeline de Pré-processamento:**
-- Criação de pipelines automatizados com encoders específicos para diferentes tipos de variáveis
-- Aplicação de **OneHotEncoder** para variáveis categóricas nominais
-- Implementação de **OrdinalEncoder** para variáveis categóricas ordinais (escolaridade, renda)
+# **Pipeline de Pré-processamento:**
+- Criação de pipelines automatizados com encoders específicos para diferentes tipos de variáveis.
+- Aplicação de **OneHotEncoder** para variáveis categóricas nominais.
+- Implementação de **OrdinalEncoder** para variáveis categóricas ordinais.
 
-**  Diferentes Modelos Modelos Implementados:**
+# **Diferentes Modelos Modelos Implementados:**
+  Modelos Lineares com Regularização:
+  
+  - Ridge Regression (alpha=1.0)
+  - Lasso Regression (alpha=0.1)
+  - ElasticNet (alpha=0.1, l1_ratio=0.5)
 
+  Modelos Baseados em Árvores:
 
-**Otimização e Validação:**
-- **Hyperparameter Tuning** com Otimização bayesiana
+  - Decision Tree Regressor
+  - Histogram Gradient Boosting Regressor (scikit-learn)
+  - LightGBM Regressor (n_estimators=100, learning_rate=0.1)
+  - XGBoost Regressor (n_estimators=100, learning_rate=0.1)
+  - CatBoost Regressor (iterations=200, learning_rate=0.1)
+
+ **Melhores Resultados:**
+ - **LightGBM**: 76.2062 RMSE (melhor modelo)
+ - **Hist Gradient Boosting**: 76.2110 RMSE
+ - **XGBoost**: 76.2891 RMSE
+ - **Decision Tree**: 110.4010 RMSE (muito inferior)
+ - **CatBoost**: 76.5788 RMSE
+ 
+<img width="1389" height="790" alt="output" src="https://github.com/user-attachments/assets/d532d1e9-97c9-4623-b42d-127bc1114079" />
+
+A pequena diferença entre CV e validação indica:
+<br>
+• Boa generalização: Modelos não apresentam overfitting significativo
+<br>
+• Pipeline robusto: Preprocessing e validação cruzada estão bem calibrados
+<br>
+• Distribuição homogênea: Conjuntos train/val têm características similares
+<br>
+• Estabilidade do modelo: Performance consistente em diferentes subconjuntos
+
+ Os algoritmos de ensemble (LightGBM, XGBoost, HistGB) tiveram performance similar e excelente,
+ enquanto Decision Tree simples teve performance muito inferior, confirmando a necessidade
+ de modelos mais sofisticados. LightGBM foi escolhido para otimização de hiperparâmetros.
+ 
+ # **Otimização e Validação:**
+ ## Tunagem de Hiperparâmetros com Optuna
+
+ A tunagem de hiperparâmetros é um processo crucial para otimizar o desempenho de modelos de machine learning.
+ Em vez de usar métodos tradicionais como Grid Search ou Random Search, utilizamos otimização bayesiana
+
 - Validação cruzada estratificada para robustez dos resultados
-- Comparação sistemática entre diferentes algoritmos
 - Análise de métricas: MAE, MSE, RMSE, R²
+  
+<br>
+ RESULTADO FINAL NO TESTE:
 
-**Interpretabilidade e Análise:**
+- MAE: 59.2292
+- RMSE: 75.7075
+- Melhoria: 76.2062 → 75.7075
+
+Após a tunagem o melhor algoritmo (Lightgbm) melhorou.
+
+# **Interpretabilidade e Análise:**
 - **SHAP (SHapley Additive exPlanations)** para explicabilidade do modelo
 - Identificação das variáveis mais importantes para predição
-- Análise do impacto individual de cada feature nas predições
-- Visualizações interativas dos valores SHAP
 
-**Resultados:**
-- Comparação de performance entre todos os modelos testados
-- Seleção do melhor modelo baseado em métricas de validação
-- Análise detalhada dos fatores socioeconômicos mais preditivos
 
-O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos, oferecendo insights valiosos sobre desigualdades educacionais no Brasil.
+# **Resultados:** Comparação do nosso modelo final com o valor médio dos dados completo:
+
+
+
+COMPARAÇÃO:
+<br>
+- Baseline (Média):        95.33 RMSE
+- LightGBM Otimizado:      75.71 RMSE
+- Redução do erro:         19.62 pontos
+- Melhoria percentual:     20.6%
+
+CONCLUSÃO:
+<br>
+ - Baseline (predição pela média): RMSE = 95.33
+ - LightGBM otimizado com Optuna:   RMSE = 75.71
+
+ O modelo ML é 20.6% melhor que simplesmente chutar a média as features realmente agregam valor preditivo significativo.
+
+
+# O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos, oferecendo insights valiosos sobre desigualdades educacionais no Brasil.
