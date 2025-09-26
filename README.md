@@ -17,21 +17,34 @@ Este notebook apresenta uma análise completa dos microdados do ENEM 2023, inclu
 - 3. Criação da variável target (NOTA_ENEM) como média das cinco áreas avaliadas.
 - 4. Remoção de colunas irrelevantes e com alta porcentagem de valores ausentes.
 #
+## Principais Descobertas
+
+Quando consideramos valores médios de Nota para cada classe das categorias, observamos uma relação positiva consistente entre as variáveis socioeconômicas e o desempenho: quanto melhores os indicadores (como renda familiar, nível educacional dos pais, entre outros), maior a nota média no ENEM.
+
+Contudo, ao analisar os boxplots, verifica-se uma grande quantidade de valores discrepantes e alta variabilidade dos dados em todas as categorias.
+
+Isso demonstra que, apesar das tendências observadas nos valores médios, existe considerável dispersão no desempenho individual dentro de cada grupo socioeconômico.
+
+Tecnologia e notas médias: O acesso à internet está associado a diferença de 62,79 pontos na nota média entre quem tem (545,86) e quem não tem acesso (483,07). Similarmente, ter computador está associado a diferença de 107,46 pontos (611,04 vs 503,58).
+
+Em contraste, a posse de celular apresenta menor diferença: 32,67 pontos (549,98 vs 507,31). Os boxplots evidenciam presença de outliers em todas as categorias, indicando alta variabilidade no desempenho independentemente do acesso a essas tecnologias.
+
+Observação: Como se trata de uma análise meramente descritiva, não foram realizados testes estatísticos para comprovar se as médias de cada categoria são estatisticamente diferentes entre si, apenas em algumas categorias como renda.
   
 # **Análise Exploratória (EDA):**
 
-## **Análise de Abstenção**: Investigação dos fatores socioeconômicos que influenciam a decisão de não comparecer às provas
-## Assim cada classe da variavel categorica será a proporção de pessoas que se abstiveram em relação ao total de pessoas daquela classe.
+**Análise de Abstenção**: Investigação dos fatores socioeconômicos que influenciam a decisão de não comparecer às provas, cada classe da variavel categorica será a proporção de pessoas que se abstiveram em relação ao total de pessoas daquela classe.
+#
 <img width="1198" height="502" alt="1" src="https://github.com/user-attachments/assets/e872e626-0ade-4071-ab21-936afd08ddb1" />
 
-## Podemos observar claramente que com o aumento da renda há uma diminuição da porcentagem de abstenção de candidatos: quanto maior a renda, menor a abstenção
+### Podemos observar claramente que com o aumento da renda há uma diminuição da porcentagem de abstenção de candidatos: quanto maior a renda, menor a abstenção
 
 <img width="1208" height="502" alt="2" src="https://github.com/user-attachments/assets/6157a04f-65b0-498c-932c-08c49c5a3353" />
 
-## Comportamento similar ao da renda: quanto maior o grau de escolaridade do pai, menor a taxa de abstenção, chegando a 24% para pais que completaram o ensino médio e 42% para pais que não estudaram.
+### Comportamento similar ao da renda: quanto maior o grau de escolaridade do pai, menor a taxa de abstenção, chegando a 24% para pais que completaram o ensino médio e 42% para pais que não estudaram.
 <img width="1144" height="503" alt="807e7e2e-c1aa-479f-94a1-e30360be8962" src="https://github.com/user-attachments/assets/e707a67b-7415-4e1f-8ff2-fa969fbd941b" />
 
-## Pessoas com menos de 18 anos e entre 18 e 24 anos apresentam as menores taxas de abstenção, o que é esperado, já que nessa faixa etária muitos estão em busca de ingressar na faculdade por meio do Enem.
+### Pessoas com menos de 18 anos e entre 18 e 24 anos apresentam as menores taxas de abstenção, o que é esperado, já que nessa faixa etária muitos estão em busca de ingressar na faculdade por meio do Enem.
 
 
 
@@ -41,11 +54,11 @@ Este notebook apresenta uma análise completa dos microdados do ENEM 2023, inclu
 
 <img width="788" height="490" alt="935a6220-f172-4ef8-aa37-11eb07bd5b7f" src="https://github.com/user-attachments/assets/a69877aa-2a9a-4a26-9007-da35848bd1a4" />
 
-## O estado de São Paulo lidera a quantidade de candidatos, seguido de Minas Gerais e Bahia.
+ ### O estado de São Paulo lidera a quantidade de candidatos, seguido de Minas Gerais e Bahia.
 
 <img width="791" height="490" alt="a82c5e7e-c9c4-4e3d-9d32-8504f00f938c" src="https://github.com/user-attachments/assets/d6645ed0-a40c-47d9-96f7-ac103a1c3194" />
 
-## 87% dos candidados do ano de 2023 são adolescentes (<18) e jovem adulto (18-24), 0,2% são pessoas idosas.
+ ### 87% dos candidados do ano de 2023 são adolescentes (<18) e jovem adulto (18-24), 0,2% são pessoas idosas.
 
 
 
@@ -54,21 +67,22 @@ Este notebook apresenta uma análise completa dos microdados do ENEM 2023, inclu
 <img width="1184" height="503" alt="88bd9f5b-403a-4056-bffe-81358f6be0bc" src="https://github.com/user-attachments/assets/9c89e721-1a78-4149-aba8-49e0e0609684" />
 <img width="987" height="590" alt="3d7989e8-f6de-4d4f-b104-cdbae012f91b" src="https://github.com/user-attachments/assets/c1d2b06b-d308-4395-a9e8-4621789433c4" />
 
-# As médias confirmam melhor desempenho nas classes de maior renda. Contudo, a alta variabilidade observada nos boxplots mostra que o desempenho individual pode variar consideravelmente dentro de cada faixa socioeconômica.
+### As médias confirmam melhor desempenho nas classes de maior renda. Contudo, a alta variabilidade observada nos boxplots mostra que o desempenho individual pode variar consideravelmente dentro de cada faixa socioeconômica.
 
 <img width="1194" height="503" alt="54dc2ca0-7633-4144-83e0-a5e00f9dfc99" src="https://github.com/user-attachments/assets/fb770a6a-0f51-40ee-9123-30fcc261f4f4" />
 <img width="983" height="590" alt="6919c193-6857-4686-a34c-1f2d4a4f2456" src="https://github.com/user-attachments/assets/24ce4241-a05a-4899-8488-8ec4a6993564" />
 
-# As notas médias crescem conforme a escolaridade paterna: de 479,72 (nunca estudou) até 612,50 (pós-graduação). Apesar da tendência clara, a alta variabilidade observada nos boxplots mostra ampla distribuição de desempenho em todos os níveis educacionais.
+### As notas médias crescem conforme a escolaridade paterna: de 479,72 (nunca estudou) até 612,50 (pós-graduação). Apesar da tendência clara, a alta variabilidade observada nos boxplots mostra ampla distribuição de desempenho em todos os níveis educacionais.
 
 <img width="1132" height="503" alt="070dd082-d317-4320-aa7e-791fe131236a" src="https://github.com/user-attachments/assets/83838bb4-e4af-4d93-877c-ca70393c8d11" />
 <img width="989" height="590" alt="0cecb3f6-b385-4bf3-9a2c-bd45e55a539f" src="https://github.com/user-attachments/assets/3ec95c45-2567-415b-a992-1c54ed851bd0" />
 
-# O desempenho mantém-se estável até a faixa 'Adulto Jovem' (548,18 a 524,00 pontos), declinando a partir da 'Meia-idade' (488,45) até 'Idosos' (463,75). Os boxplots mostram presença de outliers em todas as faixas etárias.
+### O desempenho mantém-se estável até a faixa 'Adulto Jovem' (548,18 a 524,00 pontos), declinando a partir da 'Meia-idade' (488,45) até 'Idosos' (463,75). Os boxplots mostram presença de outliers em todas as faixas etárias.
 
-# A análise completa esta disponivel no notebook 'tratamento_EDA.py'
+### A análise completa esta disponivel no notebook 'tratamento_EDA.py'.
+#
 
-# Finalizamos com um dataset com 2.6 milhões de registros e 35 colunas, com 735 MB de uso.
+### Finalizamos com um dataset com 2.6 milhões de registros e 35 colunas, com 735 MB de uso.
 
 ## 2. Modelagem 
 
