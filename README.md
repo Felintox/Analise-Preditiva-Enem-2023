@@ -9,7 +9,7 @@ link : https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdado
 
 O projeto é finalizado com a realização do deploy de um modelo simplificado (debatido no topico 2.5) deploy este feito atraves do streamlit:
 
-link:
+link: https://enem2023.streamlit.app/
 
 ## O projeto foi dividido em 2 partes: Limpeza/Exploração dos dados e Modelagem.
 
