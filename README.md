@@ -5,6 +5,12 @@ Os dados são oficiais e foram disponibilizados pelo INEP, como o próprio site 
 <br>
 link : https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem
 #
+## Deploy
+
+O projeto é finalizado com a realização do deploy de um modelo simplificado (debatido no topico 2.5) deploy este feito atraves do streamlit:
+
+link:
+
 ## O projeto foi dividido em 2 partes: Limpeza/Exploração dos dados e Modelagem.
 
 ## 1. Limpeza e Exploração dos Dados
@@ -80,20 +86,20 @@ Observação: Como se trata de uma análise meramente descritiva, não foram rea
 ### O desempenho mantém-se estável até a faixa 'Adulto Jovem' (548,18 a 524,00 pontos), declinando a partir da 'Meia-idade' (488,45) até 'Idosos' (463,75). Os boxplots mostram presença de outliers em todas as faixas etárias.
 
 ### A análise completa esta disponivel no notebook 'tratamento_EDA.py'.
-#
 
 ### Finalizamos com um dataset com 2.6 milhões de registros e 35 colunas, com 735 MB de uso.
+#
 
-## 2. Modelagem 
+# 2. Modelagem 
 
 Este notebook implementa uma abordagem completa de machine learning para predição das notas do ENEM, incluindo:
 
-# **Pipeline de Pré-processamento:**
+# 2.0 **Pipeline de Pré-processamento:**
 - Criação de pipelines automatizados com encoders específicos para diferentes tipos de variáveis.
 - Aplicação de **OneHotEncoder** para variáveis categóricas nominais.
 - Implementação de **OrdinalEncoder** para variáveis categóricas ordinais.
 
-# **Diferentes Modelos Modelos Implementados:**
+# 2.1 **Diferentes Modelos Modelos Implementados:**
   Modelos Lineares com Regularização:
   
   - Ridge Regression (alpha=1.0)
@@ -104,52 +110,56 @@ Este notebook implementa uma abordagem completa de machine learning para prediç
 
   - Decision Tree Regressor
   - Histogram Gradient Boosting Regressor (scikit-learn)
-  - LightGBM Regressor (n_estimators=100, learning_rate=0.1)
-  - XGBoost Regressor (n_estimators=100, learning_rate=0.1)
-  - CatBoost Regressor (iterations=200, learning_rate=0.1)
+  - LightGBM Regressor 
+  - XGBoost Regressor 
+  - CatBoost Regressor 
 
  **Melhores Resultados:**
  - **LightGBM**: 76.2062 RMSE (melhor modelo)
  - **Hist Gradient Boosting**: 76.2110 RMSE
  - **XGBoost**: 76.2891 RMSE
- - **Decision Tree**: 110.4010 RMSE (muito inferior)
- - **CatBoost**: 76.5788 RMSE
- 
-<img width="1389" height="790" alt="output" src="https://github.com/user-attachments/assets/d532d1e9-97c9-4623-b42d-127bc1114079" />
+ - **Decision Tree**: 78.54920 RMSE
+   
+ Os algoritmos de ensemble (LightGBM, XGBoost, HistGB) tiveram performance similares.
 
-A pequena diferença entre CV e validação indica:
-<br>
-• Boa generalização: Modelos não apresentam overfitting significativo
-<br>
-• Pipeline robusto: Preprocessing e validação cruzada estão bem calibrados
-<br>
-• Distribuição homogênea: Conjuntos train/val têm características similares
-<br>
-• Estabilidade do modelo: Performance consistente em diferentes subconjuntos
+ LightGBM foi escolhido para otimização de hiperparâmetros.
 
- Os algoritmos de ensemble (LightGBM, XGBoost, HistGB) tiveram performance similar e excelente,
- enquanto Decision Tree simples teve performance muito inferior, confirmando a necessidade
- de modelos mais sofisticados. LightGBM foi escolhido para otimização de hiperparâmetros.
  
- # **Otimização e Validação:**
- ## Tunagem de Hiperparâmetros com Optuna
+ <img width="1389" height="790" alt="grafico1" src="https://github.com/user-attachments/assets/54924899-7bae-48e4-8f38-c4416062600b" />
+
+
+A diferença entre CV e teste final indica:
+
+- • Capacidade de generalização: Performance em dados totalmente não vistos
+- • Validação robusta: Cross-validation prediz bem a performance real
+- • Ausência de overfitting: Modelos generalizam para novos dados
+- • Pipeline confiável: Preprocessing consistente entre conjuntos
+
+Essa consistência entre CV e teste final é o melhor indicador de
+que os modelos terão boa performance em dados de produção.
+
+ 
+ # 2.2 **Otimização e Validação:  Tunagem de Hiperparâmetros com Optuna**
 
  A tunagem de hiperparâmetros é um processo crucial para otimizar o desempenho de modelos de machine learning.
- Em vez de usar métodos tradicionais como Grid Search ou Random Search, utilizamos otimização bayesiana
+ Em vez de usar métodos tradicionais como Grid Search ou Random Search, utilizamos otimização bayesiana através da biblioteca Optuna.
 
-- Validação cruzada estratificada para robustez dos resultados
-- Análise de métricas: MAE, MSE, RMSE, R²
   
-<br>
- RESULTADO FINAL NO TESTE:
+RESULTADO FINAL NO TESTE:
 
-- MAE: 59.2292
-- RMSE: 75.7075
-- Melhoria: 76.2062 → 75.7075
+MAE: 59.1802
+
+MAPE (%): inf
+
+MSE: 5725.1384
+
+RMSE: 75.6646
+
+Melhoria: 76.2062 → 75.6646
 
 Após a tunagem o melhor algoritmo (Lightgbm) melhorou.
 
-# **Interpretabilidade e Análise:**
+# 2.3 **Interpretabilidade e Análise:**
 - **SHAP (SHapley Additive exPlanations)** para explicabilidade do modelo
 - Identificação das variáveis mais importantes para predição
 <img width="732" height="609" alt="image" src="https://github.com/user-attachments/assets/09c8c505-fb33-4698-9c4a-72b14ec1340c" />
@@ -171,23 +181,47 @@ As duas variáveis mais importantes são cat_ord_Q006 (renda familiar) com aprox
 
 
 
-# **Resultados:** Comparação do nosso modelo final com o valor médio dos dados completo:
+# 2.4  **Resultados:** Comparação do nosso modelo final com o valor médio dos dados completo:
 
 
 
 COMPARAÇÃO:
 <br>
 - Baseline (Média):        95.33 RMSE
-- LightGBM Otimizado:      75.71 RMSE
+- LightGBM Otimizado:      75.66 RMSE
 - Redução do erro:         19.62 pontos
 - Melhoria percentual:     20.6%
 
 CONCLUSÃO:
 <br>
  - Baseline (predição pela média): RMSE = 95.33
- - LightGBM otimizado com Optuna:   RMSE = 75.71
+ - LightGBM otimizado com Optuna:   RMSE = 75.66
 
- O modelo ML é 20.6% melhor que simplesmente chutar a média as features realmente agregam valor preditivo significativo.
+ O modelo ML é 20% melhor que simplesmente chutar a média as features realmente agregam valor preditivo significativo.
+
+# 2.5 Deploy com Streamlit:
+
+ Este modelo utiliza apenas **12 das mais de 30 features** disponíveis no modelo completo, selecionadas com base na **análise SHAP** que identificou as variáveis de maior impacto nas predições.
+
+### Justificativa da Simplificação:
+
+ **Redução de Complexidade:**
+ - **Modelo Original**: 30+ features → Pipeline complexo
+ - **Modelo Simplificado**: 12 features → Deploy otimizado
+
+ **Benefícios para Deploy:**
+ - **Performance aceitável**: Pequena degradação no RMSE (~2-3 pontos)
+  - **Velocidade**: Predições mais rápidas no Streamlit
+
+- **Manutenibilidade**: Interface mais simples e intuitiva
+- **Robustez**: Menos dependências e transformações
+
+**Seleção Baseada em SHAP:**
+As 12 features foram escolhidas pela análise de importância SHAP, garantindo que os **fatores mais determinantes** (renda familiar, escolaridade, idade) sejam mantidos, preservando a capacidade preditiva essencial do modelo.
+ 
+**Trade-off Consciente:**
+
+Embora apresente performance ligeiramente inferior ao modelo completo, este modelo simplificado é **otimizado para produção**, priorizando usabilidade e eficiência no ambiente de deploy via Streamlit.
 
 
-# O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos, oferecendo insights valiosos sobre desigualdades educacionais no Brasil.
+## O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos, oferecendo insights valiosos sobre desigualdades educacionais no Brasil.
