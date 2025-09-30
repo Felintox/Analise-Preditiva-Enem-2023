@@ -232,4 +232,6 @@ As 12 features foram escolhidas pela análise de importância SHAP, garantindo q
 Embora apresente performance ligeiramente inferior ao modelo completo, este modelo simplificado é **otimizado para produção**, priorizando usabilidade e eficiência no ambiente de deploy via Streamlit.
 
 
-## O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos, oferecendo insights valiosos sobre desigualdades educacionais no Brasil.
+##  3. O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos. 
+
+Este projeto tem fins educacionais e de portfólio. O modelo simplifica a complexidade do desempenho acadêmico e não deve ser usado para decisões reais sobre políticas públicas ou avaliações individuais.
