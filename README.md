@@ -1,3 +1,11 @@
+# Sobre Este Projeto:
+
+Este projeto foi desenvolvido com fins educacionais e de portfólio, aplicando técnicas de machine learning em dados reais do ENEM 2023.
+
+O modelo busca predizer notas com base em variáveis socioeconômicas disponíveis nos microdados do INEP. No entanto, o desempenho acadêmico é influenciado por múltiplos fatores complexos que não podem ser totalmente capturados por um modelo estatístico.
+
+Este projeto não deve ser usado para decisões sobre políticas públicas ou avaliações individuais. O objetivo é demonstrar a aplicação de técnicas de ciência de dados e explorar padrões educacionais, não criar uma ferramenta de predição definitiva.
+
 # Analise-Preditiva-Enem-2023
 Projeto de machine learning utilizando dados fornecidos pelo INEP do ENEM 2023, com objetivo de desenvolver um algoritmo capaz de predizer as notas dos participantes a partir de variáveis socioeconômicas como renda familiar, escolaridade dos pais e tipo de escola frequentada. Além de uma Análise Exploratória de Dados
 
