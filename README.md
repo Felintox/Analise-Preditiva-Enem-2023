@@ -106,7 +106,7 @@ Observação: Como se trata de uma análise meramente descritiva, não foram rea
 
 # 2. Modelagem 
 
-Este notebook implementa uma abordagem completa de machine learning para predição das notas do ENEM, incluindo:
+Este notebook (Modelagem.ipynb) implementa uma abordagem completa de machine learning para predição das notas do ENEM, incluindo:
 
 # 2.0 **Pipeline de Pré-processamento:**
 - Criação de pipelines automatizados com encoders específicos para diferentes tipos de variáveis.
