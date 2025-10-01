@@ -39,7 +39,7 @@ Este notebook (tratamento_EDA.ipynb) apresenta uma análise completa dos microda
 #
 ## Principais Descobertas
 
-Quando consideramos valores médios de Nota para cada classe das categorias, observamos uma relação positiva consistente entre as variáveis socioeconômicas e o desempenho: quanto melhores os indicadores (como renda familiar, nível educacional dos pais, entre outros), maior a nota média no ENEM.
+Quando consideramos valores médios de nota para cada classe das categorias, observamos uma relação positiva consistente entre as variáveis socioeconômicas e o desempenho: quanto melhores os indicadores (como renda familiar, nível educacional dos pais, entre outros), maior a nota média no ENEM.
 
 Contudo, ao analisar os boxplots, verifica-se uma grande quantidade de valores discrepantes e alta variabilidade dos dados em todas as categorias.
 
