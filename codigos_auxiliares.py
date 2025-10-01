@@ -20,7 +20,7 @@ def barplot_horizontal(dado, coluna, titulo):
     for p in ax.patches:
         width = p.get_width()
         ax.text(
-            width + 0.5,                    # um pouco à direita da barra
+            width + 0.5,                    
             p.get_y() + p.get_height() / 2, # centralizado verticalmente
             f'{width:.1f}%',                # formatação
             ha='left', va='center'
@@ -122,3 +122,4 @@ def plot_taxa_abstencao(df, coluna, titulo=None,figsize=(12,6)):
     ax.grid(False)
     plt.show()
 # %%
+
