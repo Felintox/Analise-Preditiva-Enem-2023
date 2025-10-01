@@ -29,7 +29,7 @@ link: https://enem2023.streamlit.app/
 
 ## 1. Limpeza e Exploração dos Dados
 
-Este notebook apresenta uma análise completa dos microdados do ENEM 2023, incluindo:
+Este notebook (tratamento_EDA.ipynb) apresenta uma análise completa dos microdados do ENEM 2023, incluindo:
 
 **Pré-processamento dos Dados:**
 - Análise de valores nulos e investigação de padrões.
