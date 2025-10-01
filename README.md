@@ -13,7 +13,7 @@ Este projeto não deve ser usado para decisões sobre políticas públicas ou av
 - codigos_auxiliares.py - Códigos auxiliares.
 
 # Analise-Preditiva-Enem-2023
-Projeto de machine learning utilizando dados fornecidos pelo INEP do ENEM 2023, com objetivo de desenvolver um algoritmo capaz de predizer as notas dos participantes a partir de variáveis socioeconômicas como renda familiar, escolaridade dos pais e tipo de escola frequentada. Além de uma Análise Exploratória de Dados
+Projeto de machine learning utilizando dados fornecidos pelo INEP do ENEM 2023, com objetivo de desenvolver um algoritmo capaz de predizer as notas dos participantes a partir de variáveis socioeconômicas como renda familiar, escolaridade dos pais e tipo de escola frequentada. Incluindo também uma Análise Exploratória dos Dados.
 
 Os dados são oficiais e foram disponibilizados pelo INEP, como o próprio site informa: "Os microdados reúnem um conjunto de informações detalhadas sobre o Enem 2023, permitindo que gestores, pesquisadores e instituições realizem análises de dados para subsidiar diagnósticos, estudos e pesquisas, bem como o acompanhamento de estatísticas e informações educacionais." <br>
 <br>
