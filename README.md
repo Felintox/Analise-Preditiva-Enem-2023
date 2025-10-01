@@ -235,7 +235,7 @@ CONCLUSÃO:
  - **Modelo Simplificado**: 12 features → Deploy otimizado
 
  **Benefícios para Deploy:**
- - **Performance aceitável**: Pequena degradação no RMSE (~2-3 pontos)
+ - **Performance aceitável**: Pequena degradação no RMSE (~2 pontos)
   - **Velocidade**: Predições mais rápidas no Streamlit
 
 - **Manutenibilidade**: Interface mais simples e intuitiva
