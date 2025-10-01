@@ -32,10 +32,10 @@ link: https://enem2023.streamlit.app/
 Este notebook apresenta uma análise completa dos microdados do ENEM 2023, incluindo:
 
 **Pré-processamento dos Dados:**
-- 1. Análise de valores nulos e investigação de padrões.
-- 2. Exploração de perfis de candidados que se absteram.
-- 3. Criação da variável target (NOTA_ENEM) como média das cinco áreas avaliadas.
-- 4. Remoção de colunas irrelevantes e com alta porcentagem de valores ausentes.
+- Análise de valores nulos e investigação de padrões.
+- Exploração de perfis de candidados que se absteram.
+- Criação da variável target (NOTA_ENEM) como média das cinco áreas avaliadas.
+- Remoção de colunas irrelevantes e com alta porcentagem de valores ausentes.
 #
 ## Principais Descobertas
 
@@ -113,28 +113,27 @@ Este notebook implementa uma abordagem completa de machine learning para prediç
 - Aplicação de **OneHotEncoder** para variáveis categóricas nominais.
 - Implementação de **OrdinalEncoder** para variáveis categóricas ordinais.
 
-# 2.1 **Diferentes Modelos Modelos Implementados:**
-  Modelos Lineares com Regularização:
+# 2.1 **Diferentes Modelos Implementados:**
+  Modelos Lineares:
   
-  - Ridge Regression (alpha=1.0)
-  - Lasso Regression (alpha=0.1)
-  - ElasticNet (alpha=0.1, l1_ratio=0.5)
+  - Ridge Regression 
+  - Lasso Regression
+  - ElasticNet 
 
   Modelos Baseados em Árvores:
 
   - Decision Tree Regressor
-  - Histogram Gradient Boosting Regressor (scikit-learn)
+  - Histogram Gradient Boosting Regressor 
   - LightGBM Regressor 
   - XGBoost Regressor 
-  - CatBoost Regressor 
+
 
  **Melhores Resultados:**
  - **LightGBM**: 76.2062 RMSE (melhor modelo)
  - **Hist Gradient Boosting**: 76.2110 RMSE
  - **XGBoost**: 76.2891 RMSE
  - **Decision Tree**: 78.54920 RMSE
-   
- Os algoritmos de ensemble (LightGBM, XGBoost, HistGB) tiveram performance similares.
+
 
  LightGBM foi escolhido para otimização de hiperparâmetros.
 
@@ -144,14 +143,12 @@ Este notebook implementa uma abordagem completa de machine learning para prediç
 
 A diferença entre CV e teste final indica:
 
-- • Capacidade de generalização: Performance em dados totalmente não vistos
-- • Validação robusta: Cross-validation prediz bem a performance real
-- • Ausência de overfitting: Modelos generalizam para novos dados
-- • Pipeline confiável: Preprocessing consistente entre conjuntos
+-  Capacidade de generalização: Boa performance em dados totalmente não vistos.
+-  Validação robusta: Cross-validation prediz bem a performance real.
+-  Ausência de overfitting: Modelos generalizam bem para novos dados.
+-  Pipeline confiável: Preprocessing consistente entre conjuntos.
 
-Essa consistência entre CV e teste final é o melhor indicador de
-que os modelos terão boa performance em dados de produção.
-
+Essa consistência entre CV e teste final é o melhor indicador de que os modelos terão boa performance em dados de produção.
  
  # 2.2 **Otimização e Validação:  Tunagem de Hiperparâmetros com Optuna**
 
@@ -161,30 +158,27 @@ que os modelos terão boa performance em dados de produção.
   
 RESULTADO FINAL NO TESTE:
 
-MAE: 59.1802
+- MAE: 59.1802
 
-MAPE (%): inf
-
-MSE: 5725.1384
-
-RMSE: 75.6646
+- RMSE: 75.6646
 
 Melhoria: 76.2062 → 75.6646
 
 Após a tunagem o score do algoritmo melhorou.
 
 # 2.3 **Interpretabilidade e Análise:**
-- **SHAP (SHapley Additive exPlanations)** para explicabilidade do modelo
+- **SHAP (Shapley Additive Explanations)** para explicabilidade do modelo
 - Identificação das variáveis mais importantes para predição
 <img width="732" height="609" alt="image" src="https://github.com/user-attachments/assets/09c8c505-fb33-4698-9c4a-72b14ec1340c" />
-
-A análise de importância do LightGBM revelou que renda familiar (Q006) e faixa etária são as variáveis mais frequentemente utilizadas pelo algoritmo para criar divisões nas árvores de decisão, indicando sua importância estrutural no modelo. As variáveis de escolaridade dos pais (Q001, Q002) e remainder_Q005 ocupam posições intermediárias, confirmando que fatores socioeconômicos são os principais critérios algorítmicos para segmentação dos dados e predição das notas do ENEM.
 
 SHAP Summary Plot - Análise
 Este gráfico mostra o impacto individual de cada variável nas predições do modelo, onde cada ponto representa um exemplo e as cores indicam valores altos (rosa) ou baixos (azul) da variável. A posição horizontal revela se a variável aumenta (direita) ou diminui (esquerda) a nota predita.
 <br>
 
 A renda familiar (Q006) apresenta o maior range de impacto (-100 a +50 pontos) com padrão claro: renda alta aumenta as notas, renda baixa diminui. A faixa etária mostra padrão inverso: candidatos mais jovens (azul) têm impacto positivo, enquanto mais velhos (rosa) têm impacto negativo, confirmando que jovens performam melhor no ENEM.
+
+<img width="819" height="734" alt="image" src="https://github.com/user-attachments/assets/32a19cfb-6df9-48ba-bd4b-82647b706bc7" />
+
 
 SHAP Feature Importance - Análise
 Este gráfico apresenta a importância média de cada variável calculada pela média dos valores SHAP absolutos, oferecendo uma visão simplificada de qual variável tem maior impacto médio nas predições do modelo. Diferente do Summary Plot, remove a complexidade das distribuições e cores, focando apenas na magnitude do impacto.
@@ -239,5 +233,5 @@ Embora apresente performance ligeiramente inferior ao modelo completo, este mode
 
 
 ##  3. O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos. 
-
-Este projeto tem fins educacionais e de portfólio. O modelo simplifica a complexidade do desempenho acadêmico e não deve ser usado para decisões reais sobre políticas públicas ou avaliações individuais.
+#
+# Este projeto tem fins educacionais e de portfólio. O modelo simplifica a complexidade do desempenho acadêmico e não deve ser usado para decisões reais sobre políticas públicas ou avaliações individuais.
