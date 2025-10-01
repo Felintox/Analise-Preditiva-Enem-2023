@@ -7,10 +7,10 @@ Este projeto não deve ser usado para decisões sobre políticas públicas ou av
 # Estrutura do Projeto:
 
 - app_enem.py – Aplicação web em Streamlit que utiliza o modelo simplificado para predições.
-- modelo_simplificado.py – Modelo otimizado com as 12 features mais importantes do modelo completo.
-- tratamento_EDA.py – Análise Exploratória de Dados e tratamento das variáveis.
-- modelagem.py – Modelo completo de machine learning com todas as features e seleção de variáveis.
-
+- modelo_simplificado.ipynb – Modelo otimizado com as 12 features mais importantes do modelo completo.
+- tratamento_EDA.ipynb – Análise Exploratória de Dados e tratamento das variáveis.
+- modelagem.ipynb – Modelo completo de machine learning com todas as features e seleção de variáveis.
+- codigos_auxiliares.py - Códigos auxiliares.
 
 # Analise-Preditiva-Enem-2023
 Projeto de machine learning utilizando dados fornecidos pelo INEP do ENEM 2023, com objetivo de desenvolver um algoritmo capaz de predizer as notas dos participantes a partir de variáveis socioeconômicas como renda familiar, escolaridade dos pais e tipo de escola frequentada. Além de uma Análise Exploratória de Dados
