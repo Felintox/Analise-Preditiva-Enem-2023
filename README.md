@@ -21,7 +21,7 @@ link : https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdado
 
 ## Deploy
 
-O projeto é finalizado com a realização do deploy de um modelo simplificado (debatido no topico 2.5) deploy este feito atraves do streamlit:
+O projeto é finalizado com a realização do deploy de um modelo simplificado (debatido no topico 2.6) deploy este feito atraves do streamlit:
 
 link: https://enem2023.streamlit.app/
 
