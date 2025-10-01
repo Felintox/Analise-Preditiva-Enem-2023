@@ -24,30 +24,6 @@ class TratadorNaoSei(BaseEstimator, TransformerMixin):
             X_.loc[X_['Q003'] == 'F', 'Q003'] = np.nan
         return X_
 
-class AgrupadorCategorias(BaseEstimator, TransformerMixin):
-    def __init__(self):
-        self.mapa_grupos_idade = {
-            1: 1, 2: 1, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2, 9: 2,
-            10: 3, 11: 3, 12: 3, 13: 3, 14: 4, 15: 4, 16: 4, 17: 4,
-            18: 5, 19: 5, 20: 5
-        }
-        self.renda_abep = {
-            "A": 0, "B": 1, "C": 2, "D": 2, "E": 3, "F": 3,
-            "G": 3, "H": 3, "I": 4, "J": 4, "K": 4, "L": 4,
-            "M": 4, "N": 5, "O": 5, "P": 5, "Q": 5
-        }
-
-    def fit(self, X, y=None):
-        return self
-
-    def transform(self, X, y=None):
-        X_ = X.copy()
-        if 'TP_FAIXA_ETARIA' in X_.columns:
-            X_['TP_FAIXA_ETARIA'] = X_['TP_FAIXA_ETARIA'].map(self.mapa_grupos_idade)
-        if 'Q006' in X_.columns:
-            X_['Q006'] = X_['Q006'].map(self.renda_abep)
-        return X_
-
 # Configuração da página
 st.set_page_config(
     page_title="Preditor de Nota ENEM 2023",
@@ -96,7 +72,7 @@ if model is not None:
             'L': 'De R$ 10.560,01 até R$ 11.880,00',
             'M': 'De R$ 11.880,01 até R$ 13.200,00',
             'N': 'De R$ 13.200,01 até R$ 15.840,00',
-            'O': 'De R$ 15.840,01 até R$19.800,00',
+            'O': 'De R$ 15.840,01 até R$ 19.800,00',
             'P': 'De R$ 19.800,01 até R$ 26.400,00',
             'Q': 'Acima de R$ 26.400,00'
         }
@@ -275,4 +251,3 @@ else:
 # Rodapé
 st.markdown("---")
 st.markdown("🤖 **Modelo desenvolvido com LightGBM e otimização bayesiana usando Optuna**")
-# %%
