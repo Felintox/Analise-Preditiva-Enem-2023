@@ -206,8 +206,25 @@ CONCLUSÃO:
  - LightGBM otimizado com Optuna:   RMSE = 75.66
 
  O modelo ML é 20% melhor que simplesmente chutar a média as features realmente agregam valor preditivo significativo.
+# 2.5 Conclusões:
 
-# 2.5 Deploy com Streamlit:
+
+ **Desempenho:**
+- RMSE de 75.67 no conjunto de teste (melhoria de 20.6% vs baseline de 95.28).
+- Tunagem bayesiana via Optuna reduziu erro de 76.21 → 75.67.
+- Modelos ensemble superaram significativamente modelos lineares.
+
+**Principais Insights:**
+- Renda familiar (Q006) é o preditor dominante (~22 pontos de impacto médio).
+- Faixa etária e status de conclusão do EM são fatores de impacto.
+- Escolaridade dos pais tem influência moderada mas consistente.
+
+**Limitações:**
+- O modelo utiliza apenas dados socioeconômicos do questionário do ENEM.
+- Fatores como horas de estudo, tipo de preparação (cursinho/autodidata), histórico de notas escolares e motivação não estão disponíveis nos dados, mas podem ser mais determinantes para a performance.
+- RMSE de ~75 pontos indica espaço significativo para melhoria com features adicionais.
+
+# 2.6 Deploy com Streamlit:
 
  Este modelo utiliza apenas **12 das mais de 30 features** disponíveis no modelo completo, selecionadas com base na **análise SHAP** que identificou as variáveis de maior impacto nas predições.
 
@@ -232,5 +249,5 @@ As 12 features foram escolhidas pela análise de importância SHAP, garantindo q
 Embora apresente performance ligeiramente inferior ao modelo completo, este modelo simplificado é **otimizado para produção**, priorizando usabilidade e eficiência no ambiente de deploy via Streamlit.
 
 
-##  3. O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos. 
+
 
