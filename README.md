@@ -9,7 +9,7 @@ Este projeto não deve ser usado para decisões sobre políticas públicas ou av
 - app_enem.py – Aplicação web em Streamlit que utiliza o modelo simplificado para predições.
 - modelo_simplificado.ipynb – Modelo otimizado com as 12 features mais importantes do modelo completo.
 - tratamento_EDA.ipynb – Análise Exploratória de Dados e tratamento das variáveis.
-- modelagem.ipynb – Modelo completo de machine learning com todas as features e seleção de variáveis.
+- modelagem.ipynb – Modelo completo de machine learning com todas as features.
 - codigos_auxiliares.py - Códigos auxiliares.
 
 # Analise-Preditiva-Enem-2023
