@@ -18,7 +18,7 @@ Projeto de machine learning utilizando dados fornecidos pelo INEP do ENEM 2023, 
 Os dados são oficiais e foram disponibilizados pelo INEP, como o próprio site informa: "Os microdados reúnem um conjunto de informações detalhadas sobre o Enem 2023, permitindo que gestores, pesquisadores e instituições realizem análises de dados para subsidiar diagnósticos, estudos e pesquisas, bem como o acompanhamento de estatísticas e informações educacionais." <br>
 <br>
 link : https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem
-#
+
 ## Deploy
 
 O projeto é finalizado com a realização do deploy de um modelo simplificado (debatido no topico 2.5) deploy este feito atraves do streamlit:
