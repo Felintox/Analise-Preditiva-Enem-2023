@@ -112,6 +112,7 @@ Este notebook (Modelagem.ipynb) implementa uma abordagem completa de machine lea
 - Criação de pipelines automatizados com encoders específicos para diferentes tipos de variáveis.
 - Aplicação de **OneHotEncoder** para variáveis categóricas nominais.
 - Implementação de **OrdinalEncoder** para variáveis categóricas ordinais.
+- Além de diferentes tentativas com encoders como target encoders, tentativa de diferentes tipos de agrupamentos e feature engineering.
 
 # 2.1 **Diferentes Modelos Implementados:**
   Modelos Lineares:
@@ -171,7 +172,7 @@ Após a tunagem o score do algoritmo melhorou.
 - Identificação das variáveis mais importantes para predição
 <img width="732" height="609" alt="image" src="https://github.com/user-attachments/assets/09c8c505-fb33-4698-9c4a-72b14ec1340c" />
 
-SHAP Summary Plot - Análise
+SHAP Summary Plot -
 Este gráfico mostra o impacto individual de cada variável nas predições do modelo, onde cada ponto representa um exemplo e as cores indicam valores altos (rosa) ou baixos (azul) da variável. A posição horizontal revela se a variável aumenta (direita) ou diminui (esquerda) a nota predita.
 <br>
 
@@ -180,7 +181,7 @@ A renda familiar (Q006) apresenta o maior range de impacto (-100 a +50 pontos) c
 <img width="819" height="734" alt="image" src="https://github.com/user-attachments/assets/32a19cfb-6df9-48ba-bd4b-82647b706bc7" />
 
 
-SHAP Feature Importance - Análise
+SHAP Feature Importance - 
 Este gráfico apresenta a importância média de cada variável calculada pela média dos valores SHAP absolutos, oferecendo uma visão simplificada de qual variável tem maior impacto médio nas predições do modelo. Diferente do Summary Plot, remove a complexidade das distribuições e cores, focando apenas na magnitude do impacto.
 <br>
 
@@ -242,11 +243,11 @@ CONCLUSÃO:
 - **Robustez**: Menos dependências e transformações
 
 **Seleção Baseada em SHAP:**
-As 12 features foram escolhidas pela análise de importância SHAP, garantindo que os **fatores mais determinantes** (renda familiar, escolaridade, idade) sejam mantidos, preservando a capacidade preditiva essencial do modelo.
+As 12 features foram escolhidas pela análise de importância SHAP, garantindo que os fatores mais determinantes sejam mantidos, preservando a capacidade preditiva essencial do modelo.
  
 **Trade-off Consciente:**
 
-Embora apresente performance ligeiramente inferior ao modelo completo, este modelo simplificado é **otimizado para produção**, priorizando usabilidade e eficiência no ambiente de deploy via Streamlit.
+Embora apresente performance ligeiramente inferior ao modelo completo, este modelo simplificado é otimizado para produção, priorizando usabilidade e eficiência no ambiente de deploy via Streamlit.
 
 
 
