@@ -233,5 +233,4 @@ Embora apresente performance ligeiramente inferior ao modelo completo, este mode
 
 
 ##  3. O pipeline final permite predizer com precisão as notas do ENEM baseado apenas em informações socioeconômicas dos candidatos. 
-#
-# Este projeto tem fins educacionais e de portfólio. O modelo simplifica a complexidade do desempenho acadêmico e não deve ser usado para decisões reais sobre políticas públicas ou avaliações individuais.
+
